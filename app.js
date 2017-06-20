@@ -13,6 +13,7 @@ var cat = require("./routes/cat");
 AWS.config.loadFromPath('./config/config.json');
 
 var app = express();
+
 var s3Bucket = new AWS.S3( { params: {Bucket: 'thriftstorestorage'} } );
 var urlParams = {Bucket: 'thriftstorestorage', Key: 'images.jpg'};
 s3Bucket.getSignedUrl('getObject', urlParams, function(err, url){
